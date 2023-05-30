@@ -5,7 +5,9 @@ h1, h2, h4{
     margin-top: 5px;
   }
   
-  
+  .dashboard-tables {
+    padding: 0;
+  }
   
   @media only screen and (max-width: 730px) {
       .scroll-me {

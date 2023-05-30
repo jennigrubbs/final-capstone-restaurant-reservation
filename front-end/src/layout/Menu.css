@@ -7,11 +7,10 @@ li, h4 {
       ),
       linear-gradient(
         to right,
-        rgba(255, 0, 0, 1),
-        rgba(255, 0, 180, 1),
+        rgba(0, 100, 200, 1),
         rgba(0, 100, 200, 1)
     );
-    background-size: 100% 3px, 0 3px;
+    background-size: 0px 0px, 100% 0px;
     background-position: 100% 100%, 0 100%;
     background-repeat: no-repeat;
     transition: background-size 400ms;
@@ -24,4 +23,12 @@ li, h4 {
   li{
     margin-top: 10px;
     margin-bottom: 10px;
+  }
+
+  .dashboard-nav-container {
+    align-items: flex-start !important;
+  }
+
+  .navbar-nav {
+    align-items: baseline;
   }

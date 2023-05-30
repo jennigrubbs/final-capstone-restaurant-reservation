@@ -77,7 +77,7 @@ import './Dashboard.css';
         <ErrorAlert error={reservationsError} />
       </div>
       <div className="dashboard table-display row mx-1">
-        <div className="col scroll-me">
+        <div className="col scroll-me dashboard-tables">
           <h2>Reservations</h2>
           <ReservationList reservations={reservations} />
         </div>

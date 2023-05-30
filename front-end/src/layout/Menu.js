@@ -10,12 +10,12 @@ import "./Menu.css"
 function Menu() {
   return (
     <nav className="navbar align-items-start p-0 border-right border-dark h-100">
-      <div className="container-fluid d-flex flex-column p-0">
+      <div className="container-fluid d-flex flex-column p-0 dashboard-nav-container">
         <Link
           className="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0"
           to="/"
         >
-          <div className="text-dark mx-3">
+          <div className="text-dark">
             <h4>Periodic Tables</h4>
           </div>
         </Link>
