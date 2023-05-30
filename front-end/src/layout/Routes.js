@@ -22,6 +22,9 @@ import EditReservation from "../components/reservations/EditReservation";
       <Route exact={true} path="/">
         <Redirect to={"/dashboard"} />
       </Route>
+      <Route path="/dashboard">
+        <Dashboard date={today()} />
+      </Route>
       <Route path="/reservations/new">
         <CreateReservation />
       </Route>
@@ -39,9 +42,6 @@ import EditReservation from "../components/reservations/EditReservation";
       </Route>
       <Route path="/search">
         <Search />
-      </Route>
-      <Route path="/dashboard">
-        <Dashboard date={today()} />
       </Route>
       <Route>
         <NotFound />

@@ -3,13 +3,14 @@ import { useParams, useHistory } from "react-router-dom";
 import Loading from "../../layout/Loading";
 import { readReservation, listTables, seatReservation } from "../../utils/api";
 import TableOption from "../tables/TableOption";
+import ErrorAlert from "../../layout/ErrorAlert";
 
 export default function SeatReservation() {
   const [currentReservation, setCurrentReservation] = useState({});
   const [reservationError, setReservationError] = useState(null);
   const [availableTables, setAvailableTables] = useState([]);
   const [tableId, setTableId] = useState("");
-  const [seatingErrors, setSeatingErrors] = useState({});
+  const [seatingErrors, setSeatingErrors] = useState(null);
 
   const { reservation_id } = useParams();
 
@@ -41,15 +42,14 @@ export default function SeatReservation() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setSeatingErrors({});
+    setSeatingErrors(null);
     const ac = new AbortController();
     try {
       await seatReservation(reservation_id, tableId, ac.signal);
       history.push(`/dashboard`);
     } catch (error) {
-      if (!seatingErrors[error.message]) {
-        setSeatingErrors({ ...seatingErrors, [error.message]: 1 });
-      }
+      console.log(error)
+      setSeatingErrors(error);
     }
     return () => ac.abort();
   };
@@ -73,6 +73,7 @@ export default function SeatReservation() {
             {currentReservation.people}
           </h3>
         </div>
+        <ErrorAlert error={seatingErrors} />
         <div className="seat seat-form form-group row ml-1 mb-3">
           <label htmlFor="table_id">Seat at:</label>
           <select

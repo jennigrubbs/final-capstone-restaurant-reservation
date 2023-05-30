@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Error({error}) {
+export default function ErrorAlert({error}) {
   return (
     <div className="alert alert-danger" role="alert">
       {error}

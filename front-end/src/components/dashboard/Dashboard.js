@@ -45,12 +45,14 @@ import './Dashboard.css';
     const date = pageDate;
     const abortController = new AbortController();
     setReservationsError(null);
-    listReservations({ date }, abortController.signal)
-      .then(setReservations)
-      .catch(setReservationsError);
-    listTables(abortController.signal)
-      .then(setTables)
-      .catch(setReservationsError);
+    Promise.all([
+      listReservations({ date }, abortController.signal)
+        .then(setReservations)
+        .catch(setReservationsError),
+      listTables(abortController.signal)
+        .then(setTables)
+        .catch(setReservationsError)
+    ]);
     return () => abortController.abort();
   }
 
